@@ -5,5 +5,12 @@ frases = ['hola','q','ace']
 
 def basico(request):
 	tracks = Track.objects.all()
-	
-	return {'titulo': choice(frases),}
+	track = None
+	# import ipdb; ipdb.set_trace()
+	for t in tracks:
+		if request.path == t.get_absolute_url():
+			track = t
+			break
+
+	# import ipdb; ipdb.set_trace()
+	return { 'titulo': choice(frases), 'tracks': tracks, 'selected_track': track }

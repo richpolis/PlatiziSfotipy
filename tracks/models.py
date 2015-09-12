@@ -11,6 +11,8 @@ class Track(models.Model):
 	album 		= models.ForeignKey( Album )
 	artist 		= models.ForeignKey( Artist )
 
+	def get_absolute_url(self):
+		return '/tracks/%s/' % self.title
 
 	def player(self):
 		return """

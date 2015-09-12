@@ -13,6 +13,8 @@ def homepage(request):
 
 # response json
 def track_view(request, title):
+	# import ipdb;  ipdb.set_trace()
+
 	track = get_object_or_404(Track, title=title)
 
 	data = {
